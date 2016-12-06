@@ -21,8 +21,6 @@ psfgen_executable=PSFGEN_EXECUTABLE
 # This will build pdb and psf files for mutations of all residues
 # mutated to Alanine (alternativelly, you can set GLY).
 #
-# Version 13.086
-#
 
 equilibrated_pdb=./trbeta_equilibrated.pdb
 

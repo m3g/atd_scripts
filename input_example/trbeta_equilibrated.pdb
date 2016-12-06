@@ -1,5 +1,4 @@
 REMARK  RESTART COORDINATES WRITTEN BY NAMD AT TIMESTEP 50000
-REMARK  Version 13.086
 ATOM      1  C1  T3      1       5.858  -1.152 -11.025  1.00  0.00      T3     
 ATOM      2  C2  T3      1       6.222  -2.488 -11.250  1.00  0.00      T3     
 ATOM      3  C3  T3      1       5.125  -0.798  -9.896  1.00  0.00      T3     
