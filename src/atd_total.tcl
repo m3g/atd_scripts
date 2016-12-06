@@ -37,17 +37,6 @@ exec mkdir -p $output_dir/graphs
 
 puts " Getting data from temperatures.dat files and creating graphs... "
 
-# Maximum and minimum values are used to set the axis ranges
-
-set max_average 0.
-set min_average 1000000.
-set max_final 0.
-set min_final 1000000.
-set max_diff_average -100000.
-set min_diff_average 100000.
-set max_diff_final -100000.
-set min_diff_final 100000.
-
 for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
  
   progress $i_resid $n_resid
@@ -66,18 +55,10 @@ for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
         if { [ string first "# Final temperature:" $line ] != -1 } {
           set nat_final_temp($i_resid) \
               [ string trim [ string range $line 20 40 ] ]
-          if { $nat_final_temp($i_resid) > $max_final } \
-             { set max_final $nat_final_temp($i_resid) }  
-          if { $nat_final_temp($i_resid) < $min_final } \
-             { set min_final $nat_final_temp($i_resid) }  
         }
         if { [ string first "# Average temperature:" $line ] != -1 } {
           set nat_average_temp($i_resid) \
               [ string trim [ string range $line 22 42 ] ]
-          if { $nat_average_temp($i_resid) > $max_average } \
-             { set max_average $nat_average_temp($i_resid) }  
-          if { $nat_average_temp($i_resid) < $min_average } \
-             { set min_average $nat_average_temp($i_resid) }  
         }
       }
     }
@@ -87,14 +68,14 @@ for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
       set nat_average_temp($i_resid) 0.
       set failed_nat($i_resid) 1
     }
-
-    set scc_average($i_resid) $nat_average_temp($i_resid)
-    set scc_final($i_resid) $nat_final_temp($i_resid)
-    if { [ info exists failed_nat($i_resid) } { 
+    if { [ info exists failed_nat($i_resid) ] } { 
       set scc_average($i_resid) 0.
       set scc_final($i_resid) 0.
       continue 
     }
+
+    set scc_average($i_resid) $nat_average_temp($i_resid)
+    set scc_final($i_resid) $nat_final_temp($i_resid)
 
   } else {
   
@@ -110,18 +91,10 @@ for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
         if { [ string first "# Final temperature:" $line ] != -1 } {
           set mut_final_temp($i_resid) \
               [ string trim [ string range $line 20 40 ] ]
-          if { $mut_final_temp($i_resid) > $max_final } \
-             { set max_final $mut_final_temp($i_resid) }  
-          if { $mut_final_temp($i_resid) < $min_final } \
-             { set min_final $mut_final_temp($i_resid) }  
         }
         if { [ string first "# Average temperature:" $line ] != -1 } {
           set mut_average_temp($i_resid) \
               [ string trim [ string range $line 22 42 ] ]          
-          if { $mut_average_temp($i_resid) > $max_average } \
-             { set max_average $mut_average_temp($i_resid) }  
-          if { $mut_average_temp($i_resid) < $min_average } \
-             { set min_average $mut_average_temp($i_resid) }  
         }
       }
     }
@@ -137,17 +110,10 @@ for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
       continue 
     }
 
-    set scc_average($i_resid) \
-    [ expr $nat_average_temp($i_resid) - $mut_average_temp($i_resid) ]
-    set scc_final($i_resid) \
-    [ expr $nat_final_temp($i_resid) - $mut_final_temp($i_resid) ]
+    set scc_average($i_resid) $mut_average_temp($i_resid)
+    set scc_final($i_resid) $mut_final_temp($i_resid)
 
   }
-
-  if { $scc_average($i_resid) > $max_diff_average } { set max_diff_average $scc_average($i_resid) }
-  if { $scc_average($i_resid) < $min_diff_average } { set min_diff_average $scc_average($i_resid) }
-  if { $scc_final($i_resid) > $max_diff_final } { set max_diff_final $scc_final($i_resid) }
-  if { $scc_final($i_resid) < $min_diff_final } { set min_diff_final $scc_final($i_resid) }
 
 }
 
@@ -171,17 +137,11 @@ puts $data_final "# Data of final structure heating
 # Residue_Heated  Final_native_temp "
 
 for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
-
   progress $i_resid $n_resid 
-
   puts $data_average \
-  "$resname($i_resid) $resid($i_resid) [ format "%8.2f %8.2f %8.2f" \
-  $nat_average_temp($i_resid) $mut_average_temp($i_resid) $scc_average($i_resid) ]"
-
+  "$resname($i_resid) $resid($i_resid) [ format "%8.2f" $scc_average($i_resid) ]"
   puts $data_final \
-  "$resname($i_resid) $resid($i_resid) [ format "%8.2f %8.2f %8.2f" \
-  $nat_final_temp($i_resid) $mut_final_temp($i_resid) $scc_final($i_resid) ]"
-
+  "$resname($i_resid) $resid($i_resid) [ format "%8.2f" $scc_final($i_resid) ]"
 }
 
 close $data_average
@@ -219,21 +179,32 @@ close $file
 
 # Write warning for residues for which simulations failed
 
-for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
-  if { [ info exists failed_nat($i_resid) ] |
-       [ info exists failed_mut($i_resid) ] } { 
-    set warning 1
-    break
-  } 
+if { $native } { 
+  for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
+    if { [ info exists failed_nat($i_resid) ] } { 
+      set warning 1
+      break
+    } 
+  }
+  for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
+    if { [ info exists failed_nat($i_resid) ] } { 
+      puts " WARNING: Failed reading data of [ nat_dir $i_resid ]"
+    } 
+  }
+} else {
+  for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
+    if { [ info exists failed_mut($i_resid) ] } { 
+      set warning 1
+      break
+    } 
+  }
+  for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
+    if { [ info exists failed_mut($i_resid) ] } { 
+      puts " WARNING: Failed reading data of [ mut_dir $i_resid ]"
+    } 
+  }
 }
-for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
-  if { [ info exists failed_nat($i_resid) ] } { 
-    puts " WARNING: Failed reading data of [ nat_dir $i_resid ]"
-  } 
-  if { [ info exists failed_mut($i_resid) ] } { 
-    puts " WARNING: Failed reading data of [ mut_dir $i_resid ]"
-  } 
-}
+
 if { [ info exists warning ] } {
   puts " > These warnings mean that some output files could not "
   puts " > be read and the output graphs may be incomplete. "
@@ -244,6 +215,9 @@ if { [ info exists warning ] } {
   puts " > files for aditional information. "
 }
 
+puts " Created file: $output_dir/data/total_$name.final.dat "
+puts " Created file: $output_dir/data/total_$name.average.dat "
+puts " Created file: $output_dir/data/total_$name.final_ordered.dat "
 puts " ---------------------------------------------- "
 puts " Normal termination of ATD_TOTAL script. "
 puts " ---------------------------------------------- "
