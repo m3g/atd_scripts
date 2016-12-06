@@ -8,6 +8,7 @@
 *bin/atd_procs.tcl
 *bin/atd_run.tcl*
 *bin/atd_sidechains.tcl*
+*bin/atd_total.tcl*
 *bin/atd_temperatures.tcl*
 *bin/compute_temperature*
 *bin/contacts*

@@ -31,6 +31,7 @@ FILES = $(BIN)/compute_temperature \
         $(BIN)/atd_prepare.tcl \
         $(BIN)/atd_run.tcl \
         $(BIN)/atd_sidechains.tcl \
+        $(BIN)/atd_total.tcl \
         $(BIN)/atd_map.tcl \
         $(BIN)/atd_temperatures.tcl \
         $(BIN)/atd_clean.tcl \
@@ -68,6 +69,10 @@ $(BIN)/atd_run.tcl : ./src/atd_run.tcl
 $(BIN)/atd_sidechains.tcl : ./src/atd_sidechains.tcl
 	sed 's!ATD_SCRIPTS_DIR!$(ATD_DIR)!' ./src/atd_sidechains.tcl > $(BIN)/atd_sidechains.tcl
 	chmod +x $(BIN)/atd_sidechains.tcl
+
+$(BIN)/atd_total.tcl : ./src/atd_total.tcl
+	sed 's!ATD_SCRIPTS_DIR!$(ATD_DIR)!' ./src/atd_total.tcl > $(BIN)/atd_total.tcl
+	chmod +x $(BIN)/atd_total.tcl
 
 $(BIN)/atd_map.tcl : ./src/atd_map.tcl
 	sed 's!ATD_SCRIPTS_DIR!$(ATD_DIR)!' ./src/atd_map.tcl > $(BIN)/atd_map.tcl
