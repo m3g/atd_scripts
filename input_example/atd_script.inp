@@ -22,5 +22,5 @@ namd2 /home/leandro/programs/NAMD_2.6_Linux-amd64/namd2
 
 # The (usually not changed) default input file for namd2, you can
 # change it if you want a different simulations protocol
-namdinput ATD_SCRIPTS_DIR/NAMD_standard_ATD_input.namd
+namdinput /home/leandro/programs/atd_scripts/input_example/NAMD_standard_ATD_input.namd
 

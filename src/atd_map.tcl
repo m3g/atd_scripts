@@ -107,7 +107,7 @@ if { $temp_min == -1 | $temp_max == -1 } {
 
 # Reading temperatures.dat files, getting data and reading the graphs
 
-set file [ open ATD_SCRIPTS_DIR/src/map.agr r ] 
+set file [ open ATD_SCRIPTS_DIR/map.agr r ] 
 set xmgrace_base [ read $file ]
 close $file
 set xmgrace_base [ split $xmgrace_base "\n" ]
@@ -156,7 +156,7 @@ foreach graph_line $xmgrace_base {
 }
 
 puts " ---------------------------------------------- "
-puts " Normal termination of ATD_SIDECHAINS script. "
+puts " Normal termination of ATD_MAP script. "
 puts " ---------------------------------------------- "
 
 

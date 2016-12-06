@@ -23,6 +23,7 @@ FORTRAN = gfortran
 FLAGS = -O3 -ffast-math -frecord-marker=4
 #
 BIN := $(shell pwd)/bin
+INPUT := $(shell pwd)/input_example
 #
 FILES = $(BIN)/compute_temperature \
         $(BIN)/time_dep \
@@ -36,6 +37,7 @@ FILES = $(BIN)/compute_temperature \
         $(BIN)/atd_check.tcl \
         $(BIN)/atd_common.tcl \
         $(BIN)/atd_procs.tcl \
+        $(BIN)/map.agr \
         ./input_example/atd_script.inp
 
 all : $(BIN) $(FILES)
@@ -90,8 +92,11 @@ $(BIN)/atd_common.tcl : ./src/atd_common.tcl
 $(BIN)/atd_procs.tcl : ./src/atd_procs.tcl
 	cp ./src/atd_procs.tcl $(BIN)/atd_procs.tcl
 
+$(BIN)/map.agr : ./src/map.agr
+	\cp -f ./src/map.agr $(BIN)/map.agr
+
 ./input_example/atd_script.inp : ./src/atd_script.inp
-	sed 's!ATD_SCRIPTS_DIR!$(BIN)!' ./src/atd_script.inp > ./input_example/atd_script.inp
+	sed 's!ATD_SCRIPTS_DIR!$(INPUT)!' ./src/atd_script.inp > ./input_example/atd_script.inp
 
 $(BIN) : 
 	mkdir -p $(BIN)
