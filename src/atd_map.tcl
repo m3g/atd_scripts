@@ -25,7 +25,7 @@
 # L. Martinez, Aug 28, 2009.
 #
 
-source ATD_SCRIPTS_DIR/atd_procs.tcl
+source ATD_SCRIPTS_DIR/bin/atd_procs.tcl
 
 puts " ---------------------------------------------- "
 puts " ATD_MAP output. "
@@ -33,7 +33,7 @@ puts " ---------------------------------------------- "
 
 array set arg [ check_args $argv "map" ]
 
-source ATD_SCRIPTS_DIR/atd_common.tcl
+source ATD_SCRIPTS_DIR/bin/atd_common.tcl
 
 # Get temperature range if it was set
 
@@ -107,7 +107,7 @@ if { $temp_min == -1 | $temp_max == -1 } {
 
 # Reading temperatures.dat files, getting data and reading the graphs
 
-set file [ open ATD_SCRIPTS_DIR/map.agr r ] 
+set file [ open ATD_SCRIPTS_DIR/xmgrace/map.agr r ] 
 set xmgrace_base [ read $file ]
 close $file
 set xmgrace_base [ split $xmgrace_base "\n" ]
@@ -148,7 +148,7 @@ foreach graph_line $xmgrace_base {
       }
     }
   } elseif { [ string first "INSERT_CONTACT_MAP" $graph_line ] != -1 } {
-    set contacts [ exec ATD_SCRIPTS_DIR/contacts $pdb_file_name $mutate_segment ]
+    set contacts [ exec ATD_SCRIPTS_DIR/bin/contacts $pdb_file_name $mutate_segment ]
     puts $graph $contacts
   } else {
     puts $graph $graph_line

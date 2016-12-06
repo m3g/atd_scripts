@@ -21,7 +21,7 @@
 # L. Martinez, Aug 26, 2009.
 #
 
-source ATD_SCRIPTS_DIR/atd_procs.tcl
+source ATD_SCRIPTS_DIR/bin/atd_procs.tcl
 
 puts " ---------------------------------------------- "
 puts " ATD_SCRIPT output. "
@@ -29,7 +29,7 @@ puts " ---------------------------------------------- "
 
 array set arg [ check_args $argv "run" ]
                                                      
-source ATD_SCRIPTS_DIR/atd_common.tcl
+source ATD_SCRIPTS_DIR/bin/atd_common.tcl
 
 # Checking for previous output files, will not overwrite if present
 

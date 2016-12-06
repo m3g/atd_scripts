@@ -17,7 +17,7 @@
 # L. Martinez, Sep 1, 2009.
 #
 
-source ATD_SCRIPTS_DIR/atd_procs.tcl
+source ATD_SCRIPTS_DIR/bin/atd_procs.tcl
 
 puts " ---------------------------------------------- "
 puts " ATD_TEMPERATURES output. "
@@ -25,7 +25,7 @@ puts " ---------------------------------------------- "
 
 array set arg [ check_args $argv "temperatures" ]
 
-source ATD_SCRIPTS_DIR/atd_common.tcl
+source ATD_SCRIPTS_DIR/bin/atd_common.tcl
 
 puts " ---------------------------------------------- "
 
@@ -49,7 +49,7 @@ for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
   
   if { $native } {
     if { [ check_run "native" $i_resid ] } {
-      exec ATD_SCRIPTS_DIR/compute_temperature \
+      exec ATD_SCRIPTS_DIR/bin/compute_temperature \
                $output_dir/PSFGEN/native.ready.psf \
                [ nat_dir $i_resid ]/velocities \
                $mutate_segment > [ nat_dir $i_resid ]/temperatures.dat
@@ -63,7 +63,7 @@ for { set i_resid 1 } { $i_resid <= $n_resid } { incr i_resid } {
   } else {
   
     if { [ check_run "mutant" $i_resid ] } {
-      exec ATD_SCRIPTS_DIR/compute_temperature \
+      exec ATD_SCRIPTS_DIR/bin/compute_temperature \
                [ mut_dir $i_resid ]/mutant.ready.psf \
                [ mut_dir $i_resid ]/velocities \
                $mutate_segment > [ mut_dir $i_resid ]/temperatures.dat

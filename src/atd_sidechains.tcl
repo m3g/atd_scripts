@@ -20,7 +20,7 @@
 # L. Martinez, Aug 28, 2009.
 #
 
-source ATD_SCRIPTS_DIR/atd_procs.tcl
+source ATD_SCRIPTS_DIR/bin/atd_procs.tcl
 
 puts " ---------------------------------------------- "
 puts " ATD_SIDECHAINS output. "
@@ -28,7 +28,7 @@ puts " ---------------------------------------------- "
 
 array set arg [ check_args $argv "sidechains" ]
 
-source ATD_SCRIPTS_DIR/atd_common.tcl
+source ATD_SCRIPTS_DIR/bin/atd_common.tcl
 
 # This script can only be run with a amino acid as input
 
@@ -205,7 +205,7 @@ set x_min $resid(1)
 set x_max $resid($n_resid)
 if { $x_min == $x_max } { set x_max [ expr $x_max + 1 ] }
 
-set xmgrace_base [ open ATD_SCRIPTS_DIR/src/side_chains.agr r ]
+set xmgrace_base [ open ATD_SCRIPTS_DIR/xmgrace/side_chains.agr r ]
 set graph_average [ open $output_dir/graphs/to_$mutation.side_chains_average.agr w ]
 set graph_final [ open $output_dir/graphs/to_$mutation.side_chains_final.agr w ]
 set file [ read $xmgrace_base ]
