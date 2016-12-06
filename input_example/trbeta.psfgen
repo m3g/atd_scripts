@@ -1,0 +1,57 @@
+#
+# ATD: The psfgen script.
+#
+# This psfgen script must be able to generate a valid
+# pdb and psf files for your simulation. In the ATD scripts,
+# it is required that the PDB is already a PDB from which
+# short simulations can be run without further energy minimization.
+#
+# Do not change the following lines, it will be automatically modified
+# in subsequent scripts
+psfgen_dir=DEFAULT_PSFGEN_DIR
+output_name=DEFAULT_OUTPUT_NAME
+psfgen_executable=PSFGEN_EXECUTABLE
+#
+# Here you can start your modifications, except for the $psfgen_dir
+# variable name, which must be used wherever you need to refer to
+# the temporary working directory.
+#
+# Within the segment you want mutations to be made (we hope to
+# ALA or GLY), you must add the line: #MUTATE ALA
+# This will build pdb and psf files for mutations of all residues
+# mutated to Alanine (alternativelly, you can set GLY).
+#
+# Version 13.086
+#
+
+equilibrated_pdb=./trbeta_equilibrated.pdb
+
+grep " T3 " < $equilibrated_pdb > $psfgen_dir/T3.pdb
+grep BETA < $equilibrated_pdb > $psfgen_dir/BETA.pdb
+
+$psfgen_executable << ENDMOL
+ 
+topology /home/leandro/programs/toppar/top_thyroid.inp
+topology /home/leandro/programs/toppar/charmm/top_all27_prot_na.rtf
+
+segment T3 {
+  pdb $psfgen_dir/T3.pdb
+}
+segment BETA {
+  pdb $psfgen_dir/BETA.pdb
+#MUTATE
+}
+
+coordpdb $psfgen_dir/T3.pdb T3
+coordpdb $psfgen_dir/BETA.pdb BETA
+
+guesscoord
+ 
+writepsf $psfgen_dir/$output_name.psf
+writepdb $psfgen_dir/$output_name.pdb
+ 
+ENDMOL
+
+rm -f T3.pdb
+rm -f BETA.pdb
+

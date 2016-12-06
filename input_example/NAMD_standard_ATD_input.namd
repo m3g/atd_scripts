@@ -1,0 +1,57 @@
+#
+# This is the standard input for ATD simulations. This
+# file is modifyied by the atd_script according to the 
+# specific system under study.
+#
+# Version 13.086
+#
+
+# Structure file                                             
+structure STRUCTURE.PSF
+coordinates STRUCTURE.PDB
+outputname OUTPUT_NAME
+                                                             
+#force field                                                 
+paratypecharmm on                                            
+PARAMETERS
+exclude scaled1-4                                            
+1-4scaling 1.0                                               
+                                                             
+#approximations                                              
+switching on                                                 
+switchdist 12.                                               
+cutoff 14.                                                   
+pairlistdist 16.0                                            
+margin 1.                                                     
+stepspercycle 20                                             
+                                                             
+#integrator                                                  
+timestep 2.0                                                 
+                                                             
+#output                                                      
+outputenergies 1000
+outputtiming 1000                                            
+                                                             
+#output coordinates
+binaryoutput no
+binaryrestart no                                             
+DCDfile DCD_OUTPUT_NAME
+velDCDfile VEL_DCD_OUTPUT
+
+#output frequencies
+velDCDfreq 1000
+dcdfreq 50000        
+
+#Langevin dynamics
+temperature 10.
+langevin on
+langevinTemp 300.
+langevinFile HEAT_FILE 
+langevinCol B
+
+#script                                                      
+run 15000
+
+
+
+

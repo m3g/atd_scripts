@@ -1,0 +1,14 @@
+*.o
+*.mod
+*bin/atd_check.tcl*
+*bin/atd_clean.tcl*
+*bin/atd_common.tcl
+*bin/atd_map.tcl*
+*bin/atd_prepare.tcl*
+*bin/atd_procs.tcl
+*bin/atd_run.tcl*
+*bin/atd_sidechains.tcl*
+*bin/atd_temperatures.tcl*
+*bin/compute_temperature*
+*bin/contacts*
+*bin/time_dep*

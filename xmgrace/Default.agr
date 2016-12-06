@@ -1,0 +1,331 @@
+# Grace project file
+#
+@version 50118
+@page size 594, 457
+@page scroll 5%
+@page inout 5%
+@link page off
+@map font 0 to "Times-Roman", "Times-Roman"
+@map font 1 to "Times-Italic", "Times-Italic"
+@map font 2 to "Times-Bold", "Times-Bold"
+@map font 3 to "Times-BoldItalic", "Times-BoldItalic"
+@map font 4 to "Helvetica", "Helvetica"
+@map font 5 to "Helvetica-Oblique", "Helvetica-Oblique"
+@map font 6 to "Helvetica-Bold", "Helvetica-Bold"
+@map font 7 to "Helvetica-BoldOblique", "Helvetica-BoldOblique"
+@map font 8 to "Courier", "Courier"
+@map font 9 to "Courier-Oblique", "Courier-Oblique"
+@map font 10 to "Courier-Bold", "Courier-Bold"
+@map font 11 to "Courier-BoldOblique", "Courier-BoldOblique"
+@map font 12 to "Symbol", "Symbol"
+@map font 13 to "ZapfDingbats", "ZapfDingbats"
+@map color 0 to (255, 255, 255), "white"
+@map color 1 to (0, 0, 0), "black"
+@map color 2 to (255, 0, 0), "red"
+@map color 3 to (0, 255, 0), "green"
+@map color 4 to (0, 0, 255), "blue"
+@map color 5 to (255, 255, 0), "yellow"
+@map color 6 to (188, 143, 143), "brown"
+@map color 7 to (220, 220, 220), "grey"
+@map color 8 to (148, 0, 211), "violet"
+@map color 9 to (0, 255, 255), "cyan"
+@map color 10 to (255, 0, 255), "magenta"
+@map color 11 to (255, 165, 0), "orange"
+@map color 12 to (114, 33, 188), "indigo"
+@map color 13 to (103, 7, 72), "maroon"
+@map color 14 to (64, 224, 208), "turquoise"
+@map color 15 to (0, 139, 0), "green4"
+#Custom colors: grey scale
+@map color 50 to (  0,   0,   0), "grey"
+@map color 51 to ( 10,  10,  10), "grey"    
+@map color 52 to ( 20,  20,  20), "grey"    
+@map color 53 to ( 30,  30,  30), "grey"    
+@map color 54 to ( 40,  40,  40), "grey"    
+@map color 55 to ( 50,  50,  50), "grey"    
+@map color 56 to ( 60,  60,  60), "grey"    
+@map color 57 to ( 70,  70,  70), "grey"    
+@map color 58 to ( 80,  80,  80), "grey"    
+@map color 59 to ( 90,  90,  90), "grey"    
+@map color 60 to (100, 100, 100), "grey" 
+@map color 61 to (110, 110, 110), "grey" 
+@map color 62 to (120, 120, 120), "grey" 
+@map color 63 to (130, 130, 130), "grey" 
+@map color 64 to (140, 140, 140), "grey" 
+@map color 65 to (150, 150, 150), "grey" 
+@map color 66 to (160, 160, 160), "grey" 
+@map color 67 to (170, 170, 170), "grey" 
+@map color 68 to (180, 180, 180), "grey" 
+@map color 69 to (190, 190, 190), "grey" 
+@map color 70 to (200, 200, 200), "grey" 
+@map color 71 to (210, 210, 210), "grey" 
+@map color 72 to (220, 220, 220), "grey" 
+@map color 73 to (230, 230, 230), "grey" 
+@map color 74 to (240, 240, 240), "grey" 
+@map color 75 to (250, 250, 250), "grey" 
+@map color 76 to (255, 255, 255), "grey" 
+#Custom colors: heat scale
+@map color 126 to ( 255,   0,   0), "heat"
+@map color 125 to ( 255,  20,   0), "heat"
+@map color 124 to ( 255,  60,   0), "heat"
+@map color 123 to ( 255, 100,   0), "heat"
+@map color 122 to ( 255, 140,   5), "heat"
+@map color 121 to ( 255, 180,  10), "heat"
+@map color 120 to ( 255, 220,  20), "heat"
+@map color 119 to ( 230, 240,  30), "heat"
+@map color 118 to ( 210, 255,  40), "heat"
+@map color 117 to ( 190, 255,  50), "heat"
+@map color 116 to ( 170, 255,  60), "heat"
+@map color 115 to ( 150, 255,  70), "heat"
+@map color 114 to ( 140, 255,  80), "heat"
+@map color 113 to ( 130, 255,  90), "heat"
+@map color 112 to ( 120, 255, 100), "heat"
+@map color 111 to ( 110, 240, 110), "heat"
+@map color 110 to ( 100, 230, 120), "heat"
+@map color 109 to (  90, 220, 130), "heat"
+@map color 108 to (  80, 210, 140), "heat"
+@map color 107 to (  70, 192, 150), "heat"
+@map color 106 to (  60, 150, 160), "heat"
+@map color 105 to (  50, 108, 170), "heat"
+@map color 104 to (  40,  66, 181), "heat"
+@map color 103 to (  30,  24, 192), "heat"
+@map color 102 to (  20,  11, 213), "heat"
+@map color 101 to (  10,   3, 234), "heat"
+@map color 100 to (   0,   0, 255), "heat"
+#Custom colors: heat scale
+@map color 226 to ( 255,   0,   0), "h&c"
+@map color 225 to ( 255,  25,  10), "h&c"
+@map color 224 to ( 255,  50,  20), "h&c"
+@map color 223 to ( 255,  75,  30), "h&c"
+@map color 222 to ( 255, 100,  40), "h&c"
+@map color 221 to ( 255, 125,  50), "h&c"
+@map color 220 to ( 255, 150,  70), "h&c"
+@map color 219 to ( 255, 175,  90), "h&c"
+@map color 218 to ( 255, 200, 110), "h&c"
+@map color 217 to ( 255, 225, 130), "h&c"
+@map color 216 to ( 255, 250, 160), "h&c"
+@map color 215 to ( 255, 255, 190), "h&c"
+@map color 214 to ( 255, 255, 220), "h&c"
+@map color 213 to ( 255, 255, 255), "h&c"
+@map color 212 to ( 250, 255, 255), "h&c"
+@map color 211 to ( 220, 255, 255), "h&c"
+@map color 210 to ( 190, 250, 255), "h&c"
+@map color 209 to ( 160, 225, 255), "h&c"
+@map color 208 to ( 130, 200, 255), "h&c"
+@map color 207 to ( 110, 175, 255), "h&c"
+@map color 206 to (  90, 150, 255), "h&c"
+@map color 205 to (  70, 125, 255), "h&c"
+@map color 204 to (  50, 100, 255), "h&c"
+@map color 203 to (  30,  75, 255), "h&c"
+@map color 202 to (  20,  50, 255), "h&c"
+@map color 201 to (  10,  25, 255), "h&c"
+@map color 200 to (   0,   0, 255), "h&c"
+#end of custom colors
+@reference date 0
+@date wrap off
+@date wrap year 1950
+@default linewidth 1.0
+@default linestyle 1
+@default color 1
+@default pattern 1
+@default font 0
+@default char size 1.000000
+@default symbol size 1.000000
+@default sformat "%.8g"
+@background color 0
+@page background fill on
+@timestamp off
+@timestamp 0.03, 0.03
+@timestamp color 1
+@timestamp rot 0
+@timestamp font 0
+@timestamp char size 1.000000
+@timestamp def "Fri Oct 21 15:30:56 2005"
+@r0 off
+@link r0 to g0
+@r0 type above
+@r0 linestyle 1
+@r0 linewidth 1.0
+@r0 color 1
+@r0 line 0, 0, 0, 0
+@r1 off
+@link r1 to g0
+@r1 type above
+@r1 linestyle 1
+@r1 linewidth 1.0
+@r1 color 1
+@r1 line 0, 0, 0, 0
+@r2 off
+@link r2 to g0
+@r2 type above
+@r2 linestyle 1
+@r2 linewidth 1.0
+@r2 color 1
+@r2 line 0, 0, 0, 0
+@r3 off
+@link r3 to g0
+@r3 type above
+@r3 linestyle 1
+@r3 linewidth 1.0
+@r3 color 1
+@r3 line 0, 0, 0, 0
+@r4 off
+@link r4 to g0
+@r4 type above
+@r4 linestyle 1
+@r4 linewidth 1.0
+@r4 color 1
+@r4 line 0, 0, 0, 0
+@g0 on
+@g0 hidden false
+@g0 type XY
+@g0 stacked false
+@g0 bar hgap 0.000000
+@g0 fixedpoint off
+@g0 fixedpoint type 0
+@g0 fixedpoint xy 0.000000, 0.000000
+@g0 fixedpoint format general general
+@g0 fixedpoint prec 6, 6
+@with g0
+@    world 0, 0, 1, 1
+@    stack world 0, 0, 0, 0
+@    znorm 1
+@    view 0.150656, 0.150000, 1.155033, 0.850000
+@    title ""
+@    title font 0
+@    title size 1.500000
+@    title color 1
+@    subtitle ""
+@    subtitle font 0
+@    subtitle size 1.000000
+@    subtitle color 1
+@    xaxes scale Normal
+@    yaxes scale Normal
+@    xaxes invert off
+@    yaxes invert off
+@    xaxis  on
+@    xaxis  type zero false
+@    xaxis  offset 0.000000 , 0.000000
+@    xaxis  bar on
+@    xaxis  bar color 1
+@    xaxis  bar linestyle 1
+@    xaxis  bar linewidth 1.0
+@    xaxis  label ""
+@    xaxis  label layout para
+@    xaxis  label place auto
+@    xaxis  label char size 1.000000
+@    xaxis  label font 0
+@    xaxis  label color 1
+@    xaxis  label place normal
+@    xaxis  tick on
+@    xaxis  tick major 0.2
+@    xaxis  tick minor ticks 1
+@    xaxis  tick default 6
+@    xaxis  tick place rounded true
+@    xaxis  tick in
+@    xaxis  tick major size 1.000000
+@    xaxis  tick major color 1
+@    xaxis  tick major linewidth 1.0
+@    xaxis  tick major linestyle 1
+@    xaxis  tick major grid off
+@    xaxis  tick minor color 1
+@    xaxis  tick minor linewidth 1.0
+@    xaxis  tick minor linestyle 1
+@    xaxis  tick minor grid off
+@    xaxis  tick minor size 0.500000
+@    xaxis  ticklabel on
+@    xaxis  ticklabel format general
+@    xaxis  ticklabel prec 5
+@    xaxis  ticklabel formula ""
+@    xaxis  ticklabel append ""
+@    xaxis  ticklabel prepend ""
+@    xaxis  ticklabel angle 0
+@    xaxis  ticklabel skip 0
+@    xaxis  ticklabel stagger 0
+@    xaxis  ticklabel place normal
+@    xaxis  ticklabel offset auto
+@    xaxis  ticklabel offset 0.000000 , 0.010000
+@    xaxis  ticklabel start type auto
+@    xaxis  ticklabel start 0.000000
+@    xaxis  ticklabel stop type auto
+@    xaxis  ticklabel stop 0.000000
+@    xaxis  ticklabel char size 1.000000
+@    xaxis  ticklabel font 0
+@    xaxis  ticklabel color 1
+@    xaxis  tick place both
+@    xaxis  tick spec type none
+@    yaxis  on
+@    yaxis  type zero false
+@    yaxis  offset 0.000000 , 0.000000
+@    yaxis  bar on
+@    yaxis  bar color 1
+@    yaxis  bar linestyle 1
+@    yaxis  bar linewidth 1.0
+@    yaxis  label ""
+@    yaxis  label layout para
+@    yaxis  label place auto
+@    yaxis  label char size 1.000000
+@    yaxis  label font 0
+@    yaxis  label color 1
+@    yaxis  label place normal
+@    yaxis  tick on
+@    yaxis  tick major 0.2
+@    yaxis  tick minor ticks 1
+@    yaxis  tick default 6
+@    yaxis  tick place rounded true
+@    yaxis  tick in
+@    yaxis  tick major size 1.000000
+@    yaxis  tick major color 1
+@    yaxis  tick major linewidth 1.0
+@    yaxis  tick major linestyle 1
+@    yaxis  tick major grid off
+@    yaxis  tick minor color 1
+@    yaxis  tick minor linewidth 1.0
+@    yaxis  tick minor linestyle 1
+@    yaxis  tick minor grid off
+@    yaxis  tick minor size 0.500000
+@    yaxis  ticklabel on
+@    yaxis  ticklabel format general
+@    yaxis  ticklabel prec 5
+@    yaxis  ticklabel formula ""
+@    yaxis  ticklabel append ""
+@    yaxis  ticklabel prepend ""
+@    yaxis  ticklabel angle 0
+@    yaxis  ticklabel skip 0
+@    yaxis  ticklabel stagger 0
+@    yaxis  ticklabel place normal
+@    yaxis  ticklabel offset auto
+@    yaxis  ticklabel offset 0.000000 , 0.010000
+@    yaxis  ticklabel start type auto
+@    yaxis  ticklabel start 0.000000
+@    yaxis  ticklabel stop type auto
+@    yaxis  ticklabel stop 0.000000
+@    yaxis  ticklabel char size 1.000000
+@    yaxis  ticklabel font 0
+@    yaxis  ticklabel color 1
+@    yaxis  tick place both
+@    yaxis  tick spec type none
+@    altxaxis  off
+@    altyaxis  off
+@    legend on
+@    legend loctype view
+@    legend 0.853719912473, 0.8
+@    legend box color 1
+@    legend box pattern 1
+@    legend box linewidth 1.0
+@    legend box linestyle 1
+@    legend box fill color 0
+@    legend box fill pattern 1
+@    legend font 0
+@    legend char size 1.000000
+@    legend color 1
+@    legend length 4
+@    legend vgap 1
+@    legend hgap 1
+@    legend invert false
+@    frame type 0
+@    frame linestyle 1
+@    frame linewidth 1.0
+@    frame color 1
+@    frame pattern 1
+@    frame background color 0
+@    frame background pattern 0
