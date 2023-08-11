@@ -7,4 +7,4 @@ L. Martínez, A. C. M. Figueira, I. Polikarpov, M. S.Skaf,
 Mapping the Intramolecular Vibrational Energy Flow in Proteins Reveals Functionally Important Residues. 
 J. Phys. Chem. Lett. 2, 16, 2073-2078, 2011. 
 
-Further information: http://leandro.iqm.unicamp.br/atd-scripts
+Further information: http://m3g.github.io/atd-scripts
